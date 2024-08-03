@@ -1,0 +1,50 @@
+<html>
+    <body style="display: flex; justify-content: center; padding: 50px;">
+        <center>
+        <div>
+            <h1>Binary To Decimal Converter</h1>
+        </div>
+        <div>
+            <input type="text" id="BinaryInput" 
+            placeholder="Write a binary number" 
+            style="padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;"></input>    
+        </div>
+        <br></br>
+        <div>
+            <button onclick="convertToDecimal()" style= "background-color: #04AA6D; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px; 
+            border-radius: 10px;" >
+                convert
+            </button >
+        </div>
+        <div>
+            <h4>Decimal Output</h4>
+            <p id="DecimalOutput"></p>
+        </div>
+        </center>
+    </body>
+    <script>
+        function convertToDecimal()
+        {
+            const Binary = document.getElementById('BinaryInput').value;
+            const Decimal = document.getElementById('DecimalOutput');
+            if(Binary === '' || !/^[01]+$/.test(Binary))
+            {
+                Decimal.textContent = "Please enter a valid number";
+                Decimal.style.color = 'red';
+                return;
+            }
+            const decimaloutput = parseInt(Binary,2);
+            Decimal.textContent = decimaloutput;
+            Decimal.style.color = 'green';
+        }
+    </script>
+</html>
